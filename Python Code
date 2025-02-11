@@ -1,0 +1,14 @@
+from transformers import pipeline
+
+# Sentiment analysis model loading
+classifier = pipeline("sentiment-analysis")
+
+# Test data
+texts = ["I love this!", "I hate this!", "It's okay, not bad but not great."]
+
+# Analysis for each sentence
+for text in texts:
+    result = classifier(text)
+    print(f"Text: {text}")
+    print(f"Sentiment: {result[0]['label']}, Score: {result[0]['score']:.4f}")
+    print("-" * 30)
